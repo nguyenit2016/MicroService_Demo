@@ -1,0 +1,56 @@
+﻿@page "/order/{id:int}"
+@using WebApp.Data
+@inject HttpClient http
+
+<EditForm Model="order" OnValidSubmit="HandleValidSubmit">
+    <div class="nb-3">
+        <label>ID</label>
+        <input type="text" name="name" value="@product.Id" />
+    </div>
+    <div class="nb-3">
+        <label>Name</label>
+        <input type="text" name="name" value="@product.Name" />
+    </div>
+    <div class="nb-3">
+        <label>Quantity</label>
+        <input type="text" name="name" @bind="@order.Quantity" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    ProductVM product = new ProductVM();
+    OrderVM order = new OrderVM();
+
+    public void HandleValidSubmit()
+    {
+        Console.WriteLine(order);
+        var result = http.PostAsJsonAsync<OrderVM>
+    ("https://localhost:7042/api/Orders/CreateOrder", order);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        product = await http.GetFromJsonAsync<ProductVM>
+                ($"https://localhost:7152/api/Products/GetProduct/{id}");
+        order.ProductId = product.Id;
+        order.Price = product.Price;
+    }
+    // protected override async Task OnParametersSetAsync()
+    // {
+    //     await Task.CompletedTask;
+    // }
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     if (firstRender)
+    //     {
+    //         await Task.Delay(100);
+    //     }
+    // }
+    public void Dispose()
+    {
+
+    }
+}

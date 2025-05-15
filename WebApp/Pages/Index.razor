@@ -1,0 +1,47 @@
+﻿@page "/"
+@using WebApp.Data
+
+@inject HttpClient http
+
+<div class="container">
+    <div class="row">
+        @foreach (ProductVM product in products)
+        {
+            <div class="col-4">
+                <div class="card">
+                    <img src="https://i.pravatar.cc?u=@product.Id" alt="Alternate Text" />
+                    <div class="card-body">
+                        <div class="card-title">@product.Name</div>
+                        <div class="card-text">@product.Price</div>
+                        <a href="/order/@product.Id">Đặt hàng</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    List<ProductVM> products = new List<ProductVM>();
+    protected override async Task OnInitializedAsync()
+    {
+        products = await http.GetFromJsonAsync<List<ProductVM>>("https://localhost:7152/api/Products/GetProducts");
+    }
+    // protected override async Task OnParametersSetAsync()
+    // {
+    //     await Task.CompletedTask;
+    // }
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     if (firstRender)
+    //     {
+    //         await Task.Delay(100);
+    //     }
+    // }
+    public void Dispose()
+    {
+
+    }
+
+}
+}
