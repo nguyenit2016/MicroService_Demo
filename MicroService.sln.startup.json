@@ -56,7 +56,8 @@
       "Projects": {
         "WebApp": {},
         "ProductApi": {},
-        "OrderApi": {}
+        "OrderApi": {},
+        "GetWay": {}
       }
     }
   }

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApi", "ProductApi\ProductApi.csproj", "{89E8D6E4-3B47-4430-9EB6-E36291484E8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderApi", "OrderApi\OrderApi.csproj", "{1BF16A7E-1E80-4915-875E-E5FE08E40D60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{CE6D0698-1405-40F5-A1DF-292F48C6CDF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetWay", "GetWay\GetWay.csproj", "{D8F5E9C8-ECCF-48E6-B622-35913D3DBEBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CE6D0698-1405-40F5-A1DF-292F48C6CDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6D0698-1405-40F5-A1DF-292F48C6CDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE6D0698-1405-40F5-A1DF-292F48C6CDF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8F5E9C8-ECCF-48E6-B622-35913D3DBEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8F5E9C8-ECCF-48E6-B622-35913D3DBEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8F5E9C8-ECCF-48E6-B622-35913D3DBEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8F5E9C8-ECCF-48E6-B622-35913D3DBEBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,7 +25,7 @@
     List<ProductVM> products = new List<ProductVM>();
     protected override async Task OnInitializedAsync()
     {
-        products = await http.GetFromJsonAsync<List<ProductVM>>("https://localhost:7152/api/Products/GetProducts");
+        products = await http.GetFromJsonAsync<List<ProductVM>>("https://localhost:7239/product/api/Products/GetProducts");
     }
     // protected override async Task OnParametersSetAsync()
     // {

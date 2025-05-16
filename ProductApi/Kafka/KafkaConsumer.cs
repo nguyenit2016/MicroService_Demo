@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Microsoft.EntityFrameworkCore;
 using ProductApi.Models;
 
 namespace ProductApi.Kafka
@@ -32,7 +33,7 @@ namespace ProductApi.Kafka
                         // Process the message
                         Console.WriteLine($"Consumed message '{cr.Value}' at: '{cr.TopicPartitionOffset}'.");
                         // Here you can add logic to update the product stock in your database
-                        var product = await _productDbContext.Products.FindAsync(cr.Key);
+                        var product = await _productDbContext.Products.FirstOrDefaultAsync(x => x.Id == int.Parse(cr.Key.ToString()));
                         if (product != null)
                         {
                             product.Stock -= 1; // Giả sử đặt 1 sản phẩm, mai mốt lấy từ message (quantity)

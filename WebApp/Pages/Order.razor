@@ -28,13 +28,13 @@
     {
         Console.WriteLine(order);
         var result = http.PostAsJsonAsync<OrderVM>
-    ("https://localhost:7204/api/Orders/CreateOrder", order);
+    ("https://localhost:7239/order/api/Orders/CreateOrder", order);
     }
 
     protected override async Task OnInitializedAsync()
     {
         product = await http.GetFromJsonAsync<ProductVM>
-                ($"https://localhost:7152/api/Products/GetProduct/{id}");
+                ($"https://localhost:7239/product/api/Products/GetProduct/{id}");
         order.ProductId = product.Id;
         order.Price = product.Price;
     }
