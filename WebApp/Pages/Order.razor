@@ -28,7 +28,7 @@
     {
         Console.WriteLine(order);
         var result = http.PostAsJsonAsync<OrderVM>
-    ("https://localhost:7042/api/Orders/CreateOrder", order);
+    ("https://localhost:7204/api/Orders/CreateOrder", order);
     }
 
     protected override async Task OnInitializedAsync()

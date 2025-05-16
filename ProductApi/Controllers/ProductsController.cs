@@ -22,9 +22,9 @@ namespace ProductApi.Controllers
 
         // GET: Products
         [HttpGet("GetProducts")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> GetProducts()
         {
-            return Ok(_productService.GetAll());
+            return Ok(_productService.GetAllAsync());
         }
 
         // GET: Categories/Details/5

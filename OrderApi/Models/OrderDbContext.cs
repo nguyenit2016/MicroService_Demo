@@ -37,10 +37,10 @@ public partial class OrderDbContext : DbContext
 
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
 
-            entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrderItem__Order__3A81B327");
+            //entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
+            //    .HasForeignKey(d => d.OrderId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK__OrderItem__Order__3A81B327");
         });
 
         OnModelCreatingPartial(modelBuilder);

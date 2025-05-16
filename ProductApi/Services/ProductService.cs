@@ -7,7 +7,7 @@ namespace ProductApi.Services
     public interface IProductService
     {
         void Update(Product product);
-        IEnumerable<Product> GetAll();
+        IEnumerable<Product> GetAllAsync();
         Task<Product?> GetByIdAsync(int id);
         void SaveChanges();
     }
@@ -31,7 +31,7 @@ namespace ProductApi.Services
             _unitOfWork.SaveChangesAsync();
         }
 
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Product> GetAllAsync()
         {
             return _productRepository.GetAllAsync().Result;
         }

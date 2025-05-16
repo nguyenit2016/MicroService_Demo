@@ -6,7 +6,8 @@ namespace OrderApi.Services
 {
     public interface IOrderService
     {
-        void Update(Order product);
+        Task Add(Order order);
+        void Update(Order order);
         IEnumerable<Order> GetAll();
         Task<Order?> GetByIdAsync(int id);
         void SaveChanges();
@@ -21,9 +22,14 @@ namespace OrderApi.Services
             _unitOfWork = unitOfWork;
         }
 
-        public void Update(Order product)
+        public async Task Add(Order order)
         {
-            _orderRepository.Update(product);
+            await _orderRepository.AddAsync(order);
+        }
+
+        public void Update(Order order)
+        {
+            _orderRepository.Update(order);
         }
 
         public void SaveChanges()

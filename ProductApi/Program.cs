@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProductApi.Infrastructure.UnitOfWork;
-//using ProductService.Kafka;
+using ProductApi.Kafka;
 using ProductApi.Models;
 using System.Reflection;
 
@@ -52,15 +52,13 @@ builder.Services.AddDbContext<ProductDbContext>(options =>
 var connectionString = builder.Configuration.GetConnectionString("ConnectionString");
 builder.Services.AddDbContext<ProductDbContext>(options => options.UseLazyLoadingProxies(false).UseSqlServer(connectionString));
 
-//DI Repository,Service
-//repo
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
 //unitofwork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-//service
-//builder.Services.AddScoped<IProductService, ProductService.Services.ProductService>();
 
 RegisterServices(builder.Services);
+
+// add background service cho kafka
+builder.Services.AddHostedService<KafkaConsumer>();
 
 var app = builder.Build();
 
